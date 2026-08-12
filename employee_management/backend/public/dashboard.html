@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Employee Management</h1>
+      <button id="logoutBtn" class="secondary">Logout</button>
+    </header>
+
+    <main class="dashboard">
+      <section class="toolbar">
+        <input id="searchInput" type="search" placeholder="Search name or email" />
+        <select id="departmentFilter">
+          <option value="">All departments</option>
+        </select>
+        <select id="statusFilter">
+          <option value="">All status</option>
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+        <button id="addEmployeeBtn">Add Employee</button>
+      </section>
+
+      <section class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Employee Name</th>
+              <th>Email</th>
+              <th>Department</th>
+              <th>Designation</th>
+              <th>Status</th>
+              <th>Joining Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="employeeRows"></tbody>
+        </table>
+        <p id="emptyState" class="empty-state">No employees found.</p>
+      </section>
+    </main>
+
+    <dialog id="employeeDialog">
+      <form id="employeeForm" method="dialog" novalidate>
+        <h2 id="dialogTitle">Add Employee</h2>
+        <input type="hidden" id="employeeId" />
+        <label>Employee Name<input id="employeeName" /></label>
+        <label>Email<input id="employeeEmail" type="email" /></label>
+        <label>Department<input id="employeeDepartment" /></label>
+        <label>Designation<input id="employeeDesignation" /></label>
+        <label>Status<select id="employeeStatus"><option>Active</option><option>Inactive</option></select></label>
+        <label>Joining Date<input id="joiningDate" type="date" /></label>
+        <p class="form-message" id="employeeMessage"></p>
+        <div class="dialog-actions">
+          <button type="button" class="secondary" id="cancelDialogBtn">Cancel</button>
+          <button type="submit">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="/dashboard.js"></script>
+  </body>
+</html>
